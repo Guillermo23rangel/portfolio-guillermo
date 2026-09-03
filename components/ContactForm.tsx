@@ -3,7 +3,14 @@ import { GitBranch, Mail, Send } from "lucide-react";
 export function ContactForm() {
   return (
     <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6">
-      <form className="space-y-5">
+      <form
+        action="https://formsubmit.co/memorangelugo@gmail.com"
+        method="POST"
+        className="space-y-5"
+      >
+        <input type="hidden" name="_subject" value="Nuevo contacto desde tu portafolio" />
+        <input type="hidden" name="_captcha" value="true" />
+
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="mb-2 block text-sm text-slate-300">
@@ -11,7 +18,9 @@ export function ContactForm() {
             </label>
             <input
               id="name"
+              name="name"
               type="text"
+              required
               placeholder="Tu nombre"
               className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-500"
             />
@@ -23,7 +32,9 @@ export function ContactForm() {
             </label>
             <input
               id="email"
+              name="email"
               type="email"
+              required
               placeholder="tuemail@dominio.com"
               className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-500"
             />
@@ -36,7 +47,9 @@ export function ContactForm() {
           </label>
           <input
             id="subject"
+            name="subject"
             type="text"
+            required
             placeholder="Necesito ayuda con mi proyecto web"
             className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-500"
           />
@@ -48,6 +61,8 @@ export function ContactForm() {
           </label>
           <textarea
             id="message"
+            name="message"
+            required
             rows={5}
             placeholder="Cuéntame qué quieres construir..."
             className="w-full resize-none rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-500"
